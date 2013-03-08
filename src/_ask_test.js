@@ -5,7 +5,25 @@
 
 	mocha.setup({ignoreLeaks: true});
 
-	describe("Text field validator", function() {
+	describe("Test Strategy #1 (Ask the dependency)", function() {
+
+		var paper;
+
+		beforeEach(function() {
+			var div = document.createElement("div");
+			paper = example.initializeDrawingArea(div);
+		});
+
+		it("simply asks Raphaël for the path", function() {
+			example.drawLine(20, 30, 90, 60);
+
+			var paths = [];
+			paper.forEach(function(element) {
+				paths.push(element);
+			});
+
+			expect(paths.length).to.equal(1);
+		});
 
 		var field;
 
