@@ -30,7 +30,7 @@
 		if (!passed) fail("Lint failed");
 	});
 
-	desc("Test browser code");
+	desc("Test everything");
 	task("test", function() {
 		testacular.runTests(REQUIRED_BROWSERS, complete, fail);
 	}, {async: true});
