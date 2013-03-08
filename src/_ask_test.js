@@ -11,10 +11,11 @@
 
 		beforeEach(function() {
 			var div = document.createElement("div");
+			document.body.insertBefore(div, null);
 			paper = example.initializeDrawingArea(div);
 		});
 
-		it("Asks Raphaël what paths have been drawn", function() {
+		it("asks Raphaël what paths have been drawn", function() {
 			example.drawLine(20, 30, 90, 60);
 
 			expect(lines()).to.eql([ [20, 30, 90, 60] ]);
