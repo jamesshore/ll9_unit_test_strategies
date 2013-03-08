@@ -14,44 +14,31 @@
 			paper = example.initializeDrawingArea(div);
 		});
 
-		it("simply asks Raphaël for the path", function() {
+		it("Asks Raphaël what paths have been drawn", function() {
 			example.drawLine(20, 30, 90, 60);
 
-			var paths = [];
-			paper.forEach(function(element) {
-				paths.push(element);
-			});
-
-			expect(paths.length).to.equal(1);
+			expect(lines()).to.eql([ [20, 30, 90, 60] ]);
 		});
 
-		var field;
+		function lines() {
+			var result = [];
+			paper.forEach(function(element) {
+				result.push(elementToLine(element));
+			});
+			return result;
+		}
 
-//		beforeEach(function() {
-//			field = document.createElement("input");
-//			field.setAttribute("type", "text");
-//		});
-//
-//		it("applies 'required' CSS class when field is empty", function() {
-//			example.validateTextField(field);
-//
-//			expect(cssClass()).to.equal(example.REQUIRED_FIELD_CLASS);
-//		});
-//
-//		it("removes 'required' CSS class when field is not empty", function() {
-//			field.setAttribute("class", example.REQUIRED_FIELD_CLASS);
-//			field.value = "not empty";
-//
-//			example.validateTextField(field);
-//
-//			expect(cssClass()).to.equal(null);
-//		});
-//
-//		// TODO: should preserve existing CSS classes
-//
-//		function cssClass() {
-//			return field.getAttribute("class");
-//		}
+		function elementToLine(element) {
+			// Raphaël gives us format "M20,30C20,30,90,60,90,60"
+			var path = element.getSubpath().end;
+			var coords = path.match(/M(\d+),(\d+)C\d+,\d+,(\d+),(\d+),\d+,\d+/);
+			return [
+				coords[1],
+				coords[2],
+				coords[3],
+				coords[4]
+			];
+		}
 
 	});
 }());
