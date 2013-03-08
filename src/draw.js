@@ -17,4 +17,9 @@ var example = {};
 		paper.path("M" + fromX + "," + fromY + "L" + toX + "," + toY);
 	};
 
+	// Note: This function is for _inject_test.js only
+	example.injectDependency = function(newPaper) {
+		paper = newPaper;
+	};
+
 }());

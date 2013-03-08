@@ -1,5 +1,5 @@
 // Copyright (c) 2012 Titanium I.T. LLC. All rights reserved. See LICENSE.txt for details.
-/*global describe, it, expect, example, beforeEach */
+/*global mocha, describe, it, expect, example, beforeEach */
 (function() {
 	"use strict";
 
