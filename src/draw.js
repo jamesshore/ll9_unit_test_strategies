@@ -5,15 +5,15 @@ var example = {};
 (function() {
 	"use strict";
 
-	example.REQUIRED_FIELD_CLASS = "example-required";
+	var paper;
 
-	example.validateTextField = function(field) {
-		if (field.value) {
-			field.removeAttribute("class");
-		}
-		else {
-			field.setAttribute("class", example.REQUIRED_FIELD_CLASS);
-		}
+	example.initializeDrawingArea = function(div) {
+		paper = new Raphael(div);
+		return paper;
+	};
+
+	example.drawLine = function(fromX, fromY, toX, toY) {
+		paper.path("M" + fromX + "," + fromY + "L" + toX + "," + toY);
 	};
 
 }());
