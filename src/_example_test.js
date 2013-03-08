@@ -3,6 +3,8 @@
 (function() {
 	"use strict";
 
+	mocha.setup({ignoreLeaks: true});
+
 	describe("Text field validator", function() {
 
 		var field;
