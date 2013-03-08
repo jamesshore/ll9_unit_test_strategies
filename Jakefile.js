@@ -6,8 +6,8 @@
 	var REQUIRED_BROWSERS = [
 //		"IE 8.0",
 //		"IE 9.0",
-//		"Firefox 17.0",
-//		"Chrome 23.0",
+//		"Firefox 19.0",
+//		"Chrome 25.0",
 //		"Safari 6.0"
 	];
 
