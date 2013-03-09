@@ -22,7 +22,7 @@
 
 		function createTestPaper() {
 			// This test double is a "spy": it records how it's called.
-			// Spies are sometimes called "mocks," but mocks work slightly differently.
+			// Spies are sometimes called "mocks," but real mocks also check that they are called correctly.
 
 			var pathFn = function() {
 				pathFn.callParameters.push(convertArgumentsToArray(arguments));
